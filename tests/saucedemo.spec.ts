@@ -1,10 +1,13 @@
 import { test, expect } from "@playwright/test";
 
-test("sauce demo login", async ({ page }) => {
-  await page.goto("https://saucedemo.com");
-  await page.goto("https://www.saucedemo.com/");
-  await page.locator('[data-test="username"]').fill("standard_user");
-  await page.locator('[data-test="password"]').fill("secret_sauce");
-  await page.locator('[data-test="login-button"]').click();
-  await expect(page.locator('[data-test="title"]')).toBeVisible();
+test("orangeHrm login", async ({ page }) => {
+  await page.goto(
+    "https://sulphate-undefined-hardener.ngrok-free.dev/orangehrm/web/index.php/auth/login",
+  );
+  await page.getByRole("textbox", { name: "Username" }).fill("orangehrm_skbn");
+  await page.getByRole("textbox", { name: "Password" }).fill("184G1a0126@");
+  await page.getByRole("button", { name: "Login" }).click();
+  await expect(
+    page.getByRole("link", { name: "client brand banner" }),
+  ).toBeVisible();
 });
