@@ -11,3 +11,4 @@ test("orangeHrm login", async ({ page }) => {
     page.getByRole("link", { name: "client brand banner" }),
   ).toBeVisible();
 });
+//this line is added
